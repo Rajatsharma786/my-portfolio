@@ -298,6 +298,21 @@
 	});
 })();
 
+(function initProjectLinks() {
+  document.querySelectorAll('.project-tab').forEach(tab => {
+    const live = tab.getAttribute('data-live');
+    const repo = tab.getAttribute('data-repo');
+
+    tab.querySelectorAll('.project-link').forEach(a => {
+      const kind = a.getAttribute('data-kind');
+      if (kind === 'live' && live) a.href = live;
+      if (kind === 'code' && repo) {
+        a.href = repo.startsWith('http') ? repo : `https://github.com/${repo}`;
+      }
+    });
+  });
+})();
+
 // Parallax movement for hero title.  As the cursor moves across the viewport
 // the hero’s name subtly shifts position, giving the illusion of depth.  This
 // effect complements the animated wave behind it and draws the visitor’s eye
