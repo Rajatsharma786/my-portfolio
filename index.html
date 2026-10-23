@@ -1,1314 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rajat Sharma - Data Scientist & AI Specialist</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 40%, #cbd5e1 70%, #94a3b8 100%);
-            color: #334155;
-            overflow-x: hidden;
-            line-height: 1.6;
-            position: relative;
-        }
-
-        /* Professional animated grid background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px),
-                linear-gradient(rgba(30, 64, 175, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(30, 64, 175, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
-            animation: gridMove 60s linear infinite;
-            z-index: -3;
-        }
-
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        /* Animated background with subtle geometric patterns */
-        .bg-particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            background: rgba(59, 130, 246, 0.4);
-            border-radius: 50%;
-            animation: dataFlow 25s infinite linear;
-        }
-
-        @keyframes dataFlow {
-            0% { transform: translateY(100vh) translateX(0px); opacity: 0; }
-            5% { opacity: 0.8; }
-            95% { opacity: 0.3; }
-            100% { transform: translateY(-50px) translateX(30px); opacity: 0; }
-        }
-
-        /* Sophisticated geometric patterns */
-        .bg-shapes {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -2;
-            overflow: hidden;
-        }
-
-        .shape {
-            position: absolute;
-            animation: sophisticatedFloat 45s infinite ease-in-out;
-        }
-
-        /* Data visualization inspired hexagons */
-        .shape:nth-child(1) {
-            width: 0;
-            height: 0;
-            border-left: 75px solid transparent;
-            border-right: 75px solid transparent;
-            border-bottom: 130px solid rgba(59, 130, 246, 0.06);
-            transform: rotate(30deg);
-            top: 15%;
-            left: 85%;
-            animation-delay: -8s;
-        }
-
-        .shape:nth-child(1)::after {
-            content: '';
-            position: absolute;
-            left: -75px;
-            top: 130px;
-            width: 0;
-            height: 0;
-            border-left: 75px solid transparent;
-            border-right: 75px solid transparent;
-            border-top: 130px solid rgba(59, 130, 246, 0.06);
-        }
-
-        /* Neural network node circles */
-        .shape:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle at 30% 30%, rgba(30, 64, 175, 0.08), transparent 70%);
-            border-radius: 50%;
-            top: 60%;
-            left: 5%;
-            animation-delay: -20s;
-        }
-
-        .shape:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle at 70% 70%, rgba(37, 99, 235, 0.05), transparent 60%);
-            border-radius: 50%;
-            top: 25%;
-            right: 20%;
-            animation-delay: -35s;
-        }
-
-        /* Algorithm flow rectangles */
-        .shape:nth-child(4) {
-            width: 180px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.15), transparent);
-            top: 45%;
-            left: 40%;
-            animation-delay: -15s;
-            transform-origin: center;
-        }
-
-        .shape:nth-child(5) {
-            width: 120px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(30, 64, 175, 0.1), transparent);
-            top: 70%;
-            left: 60%;
-            animation-delay: -30s;
-            transform-origin: center;
-        }
-
-        /* Data point clusters */
-        .shape:nth-child(6) {
-            width: 8px;
-            height: 8px;
-            background: rgba(59, 130, 246, 0.2);
-            border-radius: 50%;
-            top: 35%;
-            left: 25%;
-            animation-delay: -25s;
-            box-shadow: 
-                20px 15px 0 -2px rgba(37, 99, 235, 0.15),
-                -15px 25px 0 -1px rgba(30, 64, 175, 0.1),
-                35px -10px 0 -2px rgba(59, 130, 246, 0.12);
-        }
-
-        .shape:nth-child(7) {
-            width: 6px;
-            height: 6px;
-            background: rgba(37, 99, 235, 0.15);
-            border-radius: 50%;
-            top: 80%;
-            right: 30%;
-            animation-delay: -40s;
-            box-shadow: 
-                15px 10px 0 -1px rgba(30, 64, 175, 0.1),
-                -10px 20px 0 0px rgba(59, 130, 246, 0.08);
-        }
-
-        @keyframes sophisticatedFloat {
-            0%, 100% { 
-                transform: translateY(0px) translateX(0px) rotate(0deg);
-                opacity: 0.6;
-            }
-            25% { 
-                transform: translateY(-30px) translateX(20px) rotate(90deg);
-                opacity: 0.4;
-            }
-            50% { 
-                transform: translateY(-10px) translateX(-15px) rotate(180deg);
-                opacity: 0.8;
-            }
-            75% { 
-                transform: translateY(20px) translateX(25px) rotate(270deg);
-                opacity: 0.3;
-            }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(100vh) translateX(0px); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
-        }
-
-        /* Navigation styles removed.  Styling will be provided via external CSS. */
-
-        /* Hero Section */
-        .hero {
-            /* Fill the viewport height and use flexbox to center vertically */
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            /* Align the content to the left so the name and details sit on the left side of the hero */
-            justify-content: flex-start;
-            /* Left‑align all text within the hero */
-            text-align: left;
-            position: relative;
-            /* Increase left padding to create breathing room from the viewport edge */
-            padding: 2rem 2rem 2rem 5vw;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            animation: fadeInUp 1s ease;
-            /* Ensure internal text aligns left when the hero is left‑aligned */
-            text-align: left;
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #1e40af, #3b82f6, #1d4ed8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 3s ease-in-out infinite;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-            color: #64748b;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(45deg, #3b82f6, #1e40af);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            color: #1e40af;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .skill-card {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(148, 163, 184, 0.1);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
-            border-color: #3b82f6;
-        }
-
-        .skill-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #3b82f6, #1e40af);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .skill-card h3 {
-            margin-bottom: 1rem;
-            color: #1e40af;
-        }
-
-        .skill-level {
-            width: 100%;
-            height: 8px;
-            background: rgba(226, 232, 240, 0.6);
-            border-radius: 4px;
-            margin-top: 1rem;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, #3b82f6, #1e40af);
-            border-radius: 4px;
-            animation: fillProgress 2s ease;
-            transition: width 0.5s ease;
-        }
-
-        @keyframes fillProgress {
-            from { width: 0%; }
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            box-shadow: 0 4px 20px rgba(148, 163, 184, 0.1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(148, 163, 184, 0.2);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(45deg, #3b82f6, #1e40af, #1d4ed8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-card h3 {
-            margin-bottom: 1rem;
-            color: #1e40af;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: rgba(59, 130, 246, 0.1);
-            color: #1e40af;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .project-link {
-            color: #3b82f6;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 1px solid #3b82f6;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .project-link:hover {
-            background: #3b82f6;
-            color: white;
-        }
-
-        /* Contact Section */
-        .contact {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.6);
-            padding: 4rem 2rem;
-            margin: 2rem 0;
-            border-radius: 20px;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #475569;
-            text-decoration: none;
-            padding: 1rem 2rem;
-            border: 1px solid rgba(148, 163, 184, 0.3);
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        .contact-link:hover {
-            background: rgba(59, 130, 246, 0.1);
-            border-color: #3b82f6;
-            color: #1e40af;
-            transform: translateY(-3px);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.8s ease;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .skills-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
-
-    <!-- Custom overrides injected to emulate the dark, minimalist design shown in the reference video. These rules run after all other styles so they take precedence. -->
-    <style>
-        /* Overall page styling: switch the body to a deep black and light text, and
-           customise the grid overlay to a subtle cyan pattern. This overrides
-           the default light gradient background from earlier styles. */
-        body {
-            background: #000000 !important;
-            color: #e5e7eb !important;
-        }
-        body::before {
-            /* Remove the grid overlay entirely for a cleaner black background */
-            content: none !important;
-            background: none !important;
-            display: none !important;
-        }
-
-        /* Disable legacy floating particle and shape layers from the original
-           portfolio design. They are not needed for the new aesthetic. */
-        .bg-particles, .bg-shapes {
-            display: none !important;
-        }
-
-        /* ------------------------------------------------------------ */
-        /* Fixed top navigation bar with pill-shaped links */
-        /* Position the navbar at the very top of the viewport and stretch
-           across the full width. A semi‑transparent black background with a
-           subtle border helps differentiate it from the page content. */
-        .navbar {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            background: rgba(0, 0, 0, 0.6) !important;
-            backdrop-filter: blur(8px) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-            padding: 0.6rem 1.2rem !important;
-            z-index: 1000 !important;
-        }
-        .nav-container {
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            width: 100% !important;
-        }
-        .nav-links {
-            display: flex !important;
-            flex-direction: row !important;
-            gap: 2rem !important;
-            list-style: none !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            margin-left: auto !important;
-        }
-        .nav-links li { margin: 0 !important; }
-        .nav-links a {
-            position: relative !important;
-            display: inline-block !important;
-            padding: 0.3rem 0 !important;
-            color: #e5e7eb !important;
-            font-weight: 500 !important;
-            text-decoration: none !important;
-            border: none !important;
-            background: none !important;
-            transition: color 0.3s ease !important;
-        }
-        /* Underline effect for nav links */
-        .nav-links a::after {
-            content: '' !important;
-            position: absolute !important;
-            left: 0 !important;
-            bottom: -4px !important;
-            width: 0% !important;
-            height: 2px !important;
-            background: #ffffff !important;
-            transition: width 0.3s ease !important;
-        }
-        .nav-links a:hover {
-            color: #ffffff !important;
-        }
-        .nav-links a:hover::after {
-            width: 100% !important;
-        }
-        /* Show the logo and style it */
-        .logo {
-            display: block !important;
-            color: #ffffff !important;
-            font-weight: 700 !important;
-            font-size: 1.5rem !important;
-            letter-spacing: 1px !important;
-        }
-
-        /* Hero positioning */
-        .hero {
-            position: relative;
-            height: 100vh;
-            min-height: 600px;
-            background: #000 !important;
-            overflow: hidden;
-        }
-        .hero .hero-content {
-            position: absolute !important;
-            bottom: 4% !important;
-            left: 4% !important;
-            max-width: 800px !important;
-            z-index: 2 !important;
-            text-align: left !important;
-        }
-        .hero .hero-content h1 {
-            font-size: clamp(3rem, 8vw, 6rem) !important;
-            font-weight: 800 !important;
-            margin-bottom: 0.5rem !important;
-            /* Remove the default gradient text styling.  Restore a plain white
-               fill and disable gradient clipping so our 3D effect is visible.
-               Use multiple shadows to simulate depth and a cyan glow. */
-            background: none !important;
-            -webkit-background-clip: border-box !important;
-            background-clip: border-box !important;
-            -webkit-text-fill-color: #ffffff !important;
-            color: #ffffff !important;
-            animation: none !important;
-            text-shadow:
-                0 2px 4px rgba(255, 255, 255, 0.5),
-                0 4px 8px rgba(255, 255, 255, 0.35),
-                0 8px 16px rgba(0, 0, 0, 0.5) !important;
-        }
-        .hero .hero-content p {
-            font-size: 1.2rem !important;
-            line-height: 1.5 !important;
-            margin-top: 0.3rem !important;
-            opacity: 0.8 !important;
-            color: #d1d5db !important;
-        }
-        .hero .cta-button {
-            display: inline-block !important;
-            margin-top: 1.5rem !important;
-            padding: 0.8rem 1.8rem !important;
-            border-radius: 32px !important;
-            border: 1px solid rgba(255,255,255,0.3) !important;
-            background: rgba(255,255,255,0.1) !important;
-            color: #ffffff !important;
-            text-decoration: none !important;
-            font-weight: 600 !important;
-            transition: background 0.3s ease, border-color 0.3s ease !important;
-        }
-        .hero .cta-button:hover {
-            background: rgba(255,255,255,0.2) !important;
-            border-color: rgba(255,255,255,0.5) !important;
-        }
-        #hero-canvas {
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-            z-index: 1 !important;
-            /* Enhance visibility of the 3D ring by applying only a subtle drop-shadow.  Remove the brightness
-               filter so colours render faithfully. */
-            /* Brighten the WebGL canvas so the 3D ring appears luminous.  A
-               brightness filter amplifies the white bars while the drop-shadow
-               still adds a soft glow around the edges. */
-            filter: brightness(4.0) drop-shadow(0 0 10px rgba(255,255,255,0.6)) !important;
-        }
-
-        /* Sections styling */
-        .section {
-            max-width: 1200px !important;
-            margin: 4rem auto !important;
-            background: rgba(255,255,255,0.04) !important;
-            border: 1px solid rgba(255,255,255,0.08) !important;
-            border-radius: 20px !important;
-            padding: 4rem 2rem !important;
-            color: #e5e7eb !important;
-        }
-        .section h2 {
-            color: #ffffff !important;
-            font-size: 2.2rem !important;
-            margin-bottom: 2rem !important;
-            text-align: left !important;
-        }
-
-        .skills-grid, .projects-grid {
-            display: grid !important;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
-            gap: 2rem !important;
-        }
-        .skill-card, .project-card {
-            background: rgba(255,255,255,0.05) !important;
-            border: 1px solid rgba(255,255,255,0.08) !important;
-            border-radius: 15px !important;
-            padding: 2rem !important;
-            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-        }
-        .skill-card:hover, .project-card:hover {
-            transform: translateY(-10px) !important;
-            box-shadow: 0 20px 40px rgba(255,255,255,0.15) !important;
-        }
-        .skill-icon {
-            width: 60px !important;
-            height: 60px !important;
-            background: rgba(255,255,255,0.12) !important;
-            border-radius: 50% !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            font-size: 1.8rem !important;
-            color: #ffffff !important;
-            margin-bottom: 1rem !important;
-        }
-        .skill-card h3, .project-card h3 {
-            margin-bottom: 1rem !important;
-            color: #ffffff !important;
-        }
-        .skill-level {
-            width: 100% !important;
-            height: 8px !important;
-            background: rgba(255,255,255,0.15) !important;
-            border-radius: 4px !important;
-            margin-top: 1rem !important;
-            overflow: hidden !important;
-        }
-        .skill-progress {
-            height: 100% !important;
-            background: linear-gradient(90deg, #ffffff, #aaaaaa) !important;
-            border-radius: 4px !important;
-            transition: width 0.5s ease !important;
-        }
-        .project-image {
-            width: 100% !important;
-            height: 200px !important;
-            background: rgba(255,255,255,0.12) !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            color: #ffffff !important;
-            font-size: 3rem !important;
-        }
-        .project-content { padding-top: 1.5rem !important; }
-        .tag {
-            background: rgba(255,255,255,0.12) !important;
-            color: #ffffff !important;
-            padding: 0.3rem 0.8rem !important;
-            border-radius: 20px !important;
-            font-size: 0.8rem !important;
-            border: 1px solid rgba(255,255,255,0.3) !important;
-        }
-        .project-links {
-            display: flex !important;
-            gap: 1rem !important;
-            margin-top: 1rem !important;
-        }
-        .project-link {
-            color: #ffffff !important;
-            text-decoration: none !important;
-            padding: 0.5rem 1rem !important;
-            border: 1px solid rgba(255,255,255,0.3) !important;
-            border-radius: 5px !important;
-            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
-        }
-        .project-link:hover {
-            background: rgba(255,255,255,0.2) !important;
-            color: #000 !important;
-            border-color: rgba(255,255,255,0.5) !important;
-        }
-
-        /* Futuristic styling for the 3D project tabs */
-        .projects-stack {
-            perspective: 1500px !important;
-        }
-        .project-tab {
-            background: rgba(255,255,255,0.04) !important;
-            border: 1px solid rgba(255,255,255,0.2) !important;
-            box-shadow: 0 8px 24px rgba(255,255,255,0.15) !important;
-            transition: transform 0.6s cubic-bezier(.2,.6,.2,1), box-shadow 0.3s ease !important;
-        }
-        .project-tab:hover {
-            transform: translateZ(60px) rotateX(2deg) rotateY(-2deg) !important;
-            box-shadow: 0 20px 60px rgba(255,255,255,0.4) !important;
-        }
-        .project-tab .tab-title {
-            color: #ffffff !important;
-        }
-        .project-tab .tab-desc {
-            /* Lighten the description text for better contrast on dark cards */
-            color: #cbd5e1 !important;
-        }
-        .project-tab .tab-links .project-link {
-            border: 1px solid rgba(255,255,255,0.4) !important;
-            background: rgba(255,255,255,0.08) !important;
-            color: #ffffff !important;
-        }
-        .project-tab .tab-links .project-link:hover {
-            background: #ffffff !important;
-            color: #000000 !important;
-            border-color: #ffffff !important;
-        }
-        /* Remove the default gradient on tab backgrounds so thumbnail images stand out */
-        .project-tab .tab-bg {
-            background: none !important;
-        }
-        /* Adjust brightness and saturation of thumbnail images for a cyber look */
-        .project-tab::before {
-            /* Use a cyan‑tinted gradient as a fallback when no thumbnail image is available.
-               This gradient adds a hint of colour at the top of each card that subtly
-               fades into the dark background.  We still apply contrast and saturation
-               adjustments to any supplied images via CSS variables. */
-            background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.8) 100%) !important;
-            filter: contrast(1.2) saturate(1.5) brightness(0.7) !important;
-        }
-
-        /* Contact section overrides */
-        .contact {
-            text-align: center !important;
-            background: rgba(255,255,255,0.05) !important;
-            padding: 4rem 2rem !important;
-            margin: 4rem auto !important;
-            border-radius: 20px !important;
-            border: 1px solid rgba(255,255,255,0.08) !important;
-            color: #e5e7eb !important;
-        }
-
-        /* Hero ring styles: container for luminous bars arranged in a circle.  The ring sits
-           above the starfield canvas but below the text content, adding a dynamic focal point
-           without overwhelming the design. */
-        #ring {
-            /* Hide the 2D ring overlay now that the 3D ring is restored */
-            display: none !important;
-        }
-        #ring .bar {
-            display: none !important;
-        }
-        .contact-links {
-            display: flex !important;
-            justify-content: center !important;
-            gap: 2rem !important;
-            margin-top: 2rem !important;
-            flex-wrap: wrap !important;
-        }
-        .contact-link {
-            display: flex !important;
-            align-items: center !important;
-            gap: 0.5rem !important;
-            color: #ffffff !important;
-            text-decoration: none !important;
-            padding: 1rem 2rem !important;
-            border: 1px solid rgba(255,255,255,0.2) !important;
-            border-radius: 50px !important;
-            transition: all 0.3s ease !important;
-            background: rgba(255,255,255,0.05) !important;
-        }
-        .contact-link:hover {
-            background: rgba(255,255,255,0.2) !important;
-            border-color: rgba(255,255,255,0.5) !important;
-            color: #000000 !important;
-        }
-
-        /* Orbit ring: 3D ring of luminous bars created with DOM elements.
-           The ring container is positioned on the right side of the hero section and
-           rotated around the x-axis to create a circular arc. Each tile is absolutely
-           positioned and uses CSS transforms to sit around the ring radius.  White
-           bars with glowing edges provide a neon effect similar to the reference
-           video. */
-        #orbit-ring {
-            position: absolute;
-            /* Position the ring more centrally so the full circle is visible next to the hero text. */
-            top: 50%;
-            left: 65%;
-            width: 0;
-            height: 0;
-            transform-style: preserve-3d;
-            /* Rotate the ring around the x‑axis to give a pronounced 3D tilt. */
-            transform: translate(-50%, -50%) rotateX(-60deg);
-            perspective: 1500px;
-            pointer-events: none;
-            z-index: 2;
-        }
-        #orbit-ring .orbit-tile {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            /* The tiles are slender rectangles that radiate outward from the circle.
-               A larger width than height produces the spoke‑like bars seen in the
-               reference design. */
-            width: 60px;
-            height: 12px;
-            border-radius: 6px;
-            /* A horizontal gradient creates a bright leading edge that fades
-               across the tile for a neon glow effect. */
-            background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.2) 100%);
-            /* Amplify the glow with stronger drop‑shadows. */
-            box-shadow: 0 0 16px rgba(255,255,255,0.7), 0 0 32px rgba(255,255,255,0.4);
-            /* Rotate around the left edge so the tile extends outward from the ring. */
-            transform-origin: left center;
-            opacity: 0.98;
-            will-change: transform;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            /* Keep the navbar at the top on smaller screens and allow the links to wrap if necessary */
-            .navbar {
-                top: 0 !important;
-                bottom: auto !important;
-                left: 0 !important;
-                right: 0 !important;
-                transform: none !important;
-                width: 100% !important;
-                display: flex !important;
-                justify-content: center !important;
-                padding: 0.6rem 1rem !important;
-            }
-            .nav-container {
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: center !important;
-                gap: 0.5rem !important;
-            }
-            .nav-links { flex-direction: row !important; flex-wrap: wrap !important; }
-            .hero .hero-content {
-                bottom: 20% !important;
-                left: 50% !important;
-                transform: translateX(-50%) !important;
-                text-align: center !important;
-            }
-            /* Downscale the hero title and adjust section margins on smaller screens */
-            .hero .hero-content h1 {
-                font-size: clamp(2.5rem, 10vw, 4rem) !important;
-            }
-            .section {
-                margin: 2rem 1rem !important;
-                padding: 3rem 1rem !important;
-            }
-        }
-
-        /* Ensure hero content appears above the DOM ring and starfield */
-        .hero .hero-content {
-            position: relative !important;
-            z-index: 3 !important;
-        }
-
-        /* Reduce vertical spacing within the projects section.  By tightening
-           the top padding and heading margin, we eliminate the large gap
-           between “d Projects” and the project cards. */
-        #projects.section {
-            padding-top: 3rem !important;
-        }
-        #projects.section h2 {
-            margin-bottom: 1rem !important;
-        }
-        #projects .projects-stack {
-            margin-top: 0 !important;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rajat Sharma | Gen AI Engineer</title>
+<meta name="description" content="Gen AI Engineer building agents, RAG pipelines and document AI on Azure and GCP.">
+<style>
+:root{--bg:#242424;--card:#2b2b2b;--line:#3a3a3a;--tx:#f5f5f5;--mu:#a3a3a3;--ac:#f7ab0a;--ac2:#f7ab0a}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:inherit;text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;background:rgba(36,36,36,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav b{letter-spacing:.08em}
+nav div a{margin-left:22px;color:var(--mu);font-size:14px;transition:color .2s}
+nav div a:hover{color:var(--ac2)}
+#hero{position:relative;height:100vh;min-height:560px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.circ{position:absolute;left:50%;top:50%;border:1px solid #3d3d3d;border-radius:50%;transform:translate(-50%,-50%);animation:pu 5s ease-in-out infinite}
+.circ.g{border-color:rgba(247,171,10,.45)}
+@keyframes pu{50%{transform:translate(-50%,-50%) scale(1.07);opacity:.45}}
+.hc{position:relative;z-index:2;padding:0 5vw}
+.hc small{color:var(--ac2);letter-spacing:.3em;text-transform:uppercase;font-size:13px}
+.hc h1{font-size:clamp(2.4rem,7vw,5rem);line-height:1.1;margin:14px 0}
+.hc h1 span{color:var(--ac)}
+.role{font-size:clamp(1.1rem,3vw,1.7rem);color:var(--mu);min-height:2.2em}
+.cur{display:inline-block;width:2px;height:1em;background:var(--ac2);margin-left:3px;vertical-align:-3px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.btns{margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{padding:11px 24px;border-radius:999px;border:1px solid var(--ac);font-size:14px;transition:transform .2s,background .2s}
+.btn:hover{background:var(--ac);color:#242424}
+.btn.p{background:var(--ac);color:#242424}
+.scroll{position:absolute;bottom:22px;left:50%;width:22px;height:36px;border:2px solid var(--mu);border-radius:12px;z-index:2;transform:translateX(-50%)}
+.scroll:after{content:"";position:absolute;left:50%;top:7px;width:4px;height:7px;margin-left:-2px;background:var(--ac2);border-radius:2px;animation:sc 1.6s infinite}
+@keyframes sc{60%{transform:translateY(12px);opacity:0}}
+section{max-width:1100px;margin:0 auto;padding:96px 5vw}
+h2{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:34px}
+h2:before{content:"";display:inline-block;width:34px;height:3px;background:var(--ac);margin-right:14px;vertical-align:middle}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.about{font-size:1.1rem;color:var(--mu);max-width:760px}
+.stats{display:flex;gap:30px;flex-wrap:wrap;margin-top:30px}
+.stats div b{display:block;font-size:2rem;color:var(--ac2)}
+.stats div span{color:var(--mu);font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:20px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-3px);border-color:var(--ac);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.card h3{font-size:1.2rem}
+.meta{color:var(--ac2);font-size:13px;margin:2px 0 10px}
+.card ul{padding-left:18px;color:var(--mu)}
+.card li{margin:5px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.grid .card{margin:0}
+.num{color:var(--ac);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.chip{font-size:12px;padding:3px 10px;border-radius:999px;background:rgba(247,171,10,.08);border:1px solid rgba(247,171,10,.35);color:var(--ac2);transition:background .2s,color .2s}
+.chip:hover{background:var(--ac);color:#242424}
+.sk h3{font-size:1rem;color:var(--tx)}
+.contact{text-align:center}
+.contact p{color:var(--mu);margin-bottom:22px}
+footer{text-align:center;color:var(--mu);font-size:13px;padding:30px;border-top:1px solid var(--line)}
+@media(max-width:640px){nav div a{margin-left:12px}}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}*{animation:none!important}}
+</style>
 </head>
-<body class="theme-future">
-    <!-- Futuristic layered background (disabled for solid black mode) -->
-    <div class="futuristic-bg disabled" aria-hidden="true"></div>
+<body>
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script>
+const h = React.createElement;
+const { useState, useEffect, useRef } = React;
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <!-- Optional logo hidden via CSS; left here for future branding -->
-            <div class="logo">RS</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+/* ---------- CONTENT: edit here ---------- */
+const ME = {
+  name: "Rajat Sharma",
+  roles: ["Gen AI Engineer", "Agentic AI Builder", "RAG & Document AI", "LLM Evals & Observability"],
+  email: "rajatsharma0101786@outlook.com",
+  phone: "0406 443 551",
+  github: "https://github.com/Rajatsharma786",
+  about: "I’m a Gen AI Engineer based in Melbourne with 3+ years of experience shipping AI products across SaaS, insurance, finance and supply chain. I build multi-agent systems, RAG pipelines and document-extraction workflows on Azure and GCP, and I trace and evaluate them so they stay reliable in production. I build with Claude Code using spec-first delivery."
+};
+const STATS = [["3+","Years shipping AI"],["150/day","Invoices processed"],["78→94%","Extraction accuracy"],["20+","Customer reports automated"]];
+const EXP = [
+  { role: "Gen AI Engineer", org: "Aera", when: "Nov 2025 – Present", pts: [
+    "Multi-tenant SaaS API on PostgreSQL with Row-Level Security and per-request org_id isolation.",
+    "Content pipeline across 3 image models, orchestrated with LangGraph on Redis queues with ARQ workers.",
+    "Invoice OCR pipeline on Azure Document Intelligence at 150 invoices/day; accuracy raised from 78% to 94% with preprocessing.",
+    "Phoenix tracing, Prometheus metrics, a supervisor-agent loop, and a GitHub Actions CI/CD pipeline for an on-prem deployment behind Caddy.",
+    "Copilot Studio sales agent for Teams (cut research time by 50%) and a Python reporting pipeline for 20+ customers with LLM summaries under validation rules."
+  ]},
+  { role: "Simulation Data Consultant", org: "Simwell", when: "Aug 2023 – Mar 2025", pts: [
+    "Supply chain simulation models: network efficiency up 18%, logistics costs down 12%.",
+    "Power BI dashboards for 8 businesses, plus a RAG assistant on Streamlit with AWS and Snowflake.",
+    "Led a Scrum team of 5."
+  ]},
+  { role: "Data Science Analyst", org: "WNS", when: "Feb 2022 – Jun 2023", pts: [
+    "Claim-propensity models (Random Forest, GLM, XGBoost) in insurance, accuracy up 22%.",
+    "Automated daily scoring, retraining and monitoring pipelines in Python and SQL."
+  ]}
+];
+const SKILLS = [
+  ["GenAI & Agents", ["LangGraph","LangChain","CrewAI","RAG","Multi-agent","Pydantic","Claude Code","MCP-style tools","Sarvam Saaras v3"]],
+  ["Evals & Observability", ["Arize Phoenix","Prometheus","Guardrails","Output evals"]],
+  ["Azure & Microsoft", ["Document Intelligence","Blob & Queue","Copilot Studio","Power Automate","Dataverse","PII Detection","Power BI"]],
+  ["Cloud & DevOps", ["Azure","GCP","AWS","Docker","GitHub Actions","Caddy","NSSM"]],
+  ["Backend & Data", ["Python","FastAPI","ARQ","Redis","PostgreSQL","Azure SQL","ChromaDB","Stripe"]],
+  ["ML", ["XGBoost","OCR","NLP","PCA","Feature engineering"]]
+];
+/* Add or reorder projects here. CallIQ first, Lexi Law second. */
+const PROJECTS = [
+  { t: "CallIQ", d: "AI call-QA assistant built with a team of 3. Users upload call recordings and receive a per-call or bulk report scoring each call against the customer’s pitch script and their own checkpoints.", pts: [
+    "Claude Opus scoring with checkpoints loaded into a Pydantic model for validated output.",
+    "Language-routed transcription: Sarvam Saaras v3 with diarization for Hindi and Indian English, GPT-4o-transcribe-diarize for other English.",
+    "PII redacted with Azure PII detection before the LLM; sensitive columns masked in Azure SQL."
+  ], tech: ["Claude Opus","Pydantic","Sarvam","GPT-4o Transcribe","Azure SQL","Azure PII","Dynamic Data Masking"] },
+  { t: "Lexi Law Agent", d: "Multi-agent legal assistant over Victorian legislation that accepts PDF and image uploads alongside text queries.", pts: [
+    "RAG with Legal-BERT, ChromaDB and OCR; batching and async cut retrieval time by 45%.",
+    "Azure Web Apps via Azure DevOps CI/CD with Redis caching and Phoenix tracing: ~60% faster responses."
+  ], tech: ["LangGraph","RAG","ChromaDB","Legal-BERT","Azure","Redis","Arize Phoenix"] },
+  { t: "Financial Analyst Agent", d: "ReAct stock-analysis agent using live market data and a RAG layer for financial retrieval.", pts: [
+    "LangGraph and GPT-4o-mini with the OpenBB API.",
+    "Docker and CI/CD on GCP; a scheduler emails daily stock summaries."
+  ], tech: ["LangGraph","OpenAI","OpenBB","Azure PostgreSQL","GCP","Docker"] },
+  { t: "Logistic Trip Planner AI Agent", d: "Logistics planner that predicts ETAs from live traffic and weather and answers questions with multimodal RAG.", pts: [
+    "XGBoost ETA model: accuracy up 28%; async API calls cut latency by 35%.",
+    "LangChain and ChromaDB over text, tables and images; deployed on Cloud Run."
+  ], tech: ["FastAPI","XGBoost","LangChain","ChromaDB","Cloud Run","Streamlit"] },
+  { t: "Real Estate Agentic RAG System", d: "Agentic system for property research and market insights.", pts: [
+    "Column-description embeddings in PGVector behind SQL guardrails: query reliability and schema accuracy up 30%.",
+    "Cloud Run with Streamlit, Redis caching and authentication."
+  ], tech: ["LangGraph","PostgreSQL","PGVector","Redis","Cloud Run"] }
+];
+/* ---------- helpers ---------- */
+function Reveal({ children, cls = "" }) {
+  const r = useRef();
+  useEffect(() => {
+    const io = new IntersectionObserver(e => e.forEach(x => x.isIntersecting && (x.target.classList.add("in"), io.disconnect())), { threshold: .12 });
+    io.observe(r.current); return () => io.disconnect();
+  }, []);
+  return h("div", { ref: r, className: "rv " + cls }, children);
+}
+function Typewriter({ words }) {
+  const [txt, setTxt] = useState("");
+  useEffect(() => {
+    let i = 0, j = 0, del = false, t;
+    const tick = () => {
+      const w = words[i];
+      j += del ? -1 : 1; setTxt(w.slice(0, j));
+      let d = del ? 40 : 90;
+      if (!del && j === w.length) { del = true; d = 1400; }
+      else if (del && j === 0) { del = false; i = (i + 1) % words.length; d = 300; }
+      t = setTimeout(tick, d);
+    };
+    tick(); return () => clearTimeout(t);
+  }, []);
+  return h("div", { className: "role" }, txt, h("span", { className: "cur" }));
+}
+function Circles() {
+  const sizes = [[220, "g"], [340, ""], [500, ""], [680, ""], [880, ""]];
+  return h("div", { "aria-hidden": "true" }, sizes.map((c, i) => h("span", { key: i, className: "circ " + c[1], style: { width: c[0], height: c[0], animationDelay: i * .5 + "s" } })));
+}
+const Chips = ({ items }) => h("div", { className: "chips" }, items.map(x => h("span", { className: "chip", key: x }, x)));
+const Sec = (id, title, body) => h("section", { id }, h(Reveal, null, h("h2", null, title)), body);
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Rajat Sharma</h1>
-            <p>Data Scientist & Generative AI Specialist
-            I specialize in designing and implementing end-to-end systems that combine data pipelines, retrieval layers, LLM orchestration, cloud infrastructure, and machine learning to deliver scalable, production-ready solutions. 
-            My strong analytical and statistical background enables me to extract actionable insights and drive data-informed decisions with real impact.</p>
-            <a href="#projects" class="cta-button">View My Work</a>
-        </div>
-        <!-- Orbit ring container for 3D parallax tiles.  This element will be populated via JavaScript
-             with individual tiles that rotate around a circle and scale on scroll.  We use a
-             separate id from the old ring to avoid styling conflicts. -->
-        <div id="orbit-ring"></div>
-        <!-- Single canvas for the wave background -->
-        <canvas id="hero-canvas" aria-hidden="true"></canvas>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <h2>Technical Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill-card" onclick="animateSkill(this)">
-                <div class="skill-icon">🤖</div>
-                <h3>Generative AI & LLM</h3>
-                <p>Advanced RAG systems, Vector databases, LangChain, CrewAI, and API integrations for intelligent automation</p>
-                <div class="skill-level">
-                    <div class="skill-progress" style="width: 90%"></div>
-                </div>
-            </div>
-            <div class="skill-card" onclick="animateSkill(this)">
-                <div class="skill-icon">📊</div>
-                <h3>Data Science & Analytics</h3>
-                <p>End-to-end ML pipelines, statistical modeling, and predictive analytics for business intelligence</p>
-                <div class="skill-level">
-                    <div class="skill-progress" style="width: 95%"></div>
-                </div>
-            </div>
-            <div class="skill-card" onclick="animateSkill(this)">
-                <div class="skill-icon">📈</div>
-                <h3>Business Intelligence</h3>
-                <p>Executive dashboards, data visualization, and KPI analysis using Power BI and Tableau</p>
-                <div class="skill-level">
-                    <div class="skill-progress" style="width: 90%"></div>
-                </div>
-            </div>
-            <div class="skill-card" onclick="animateSkill(this)">
-                <div class="skill-icon">⚡</div>
-                <h3>Supply Chain Optimization</h3>
-                <p>Simulation modeling, scenario analysis, and operational efficiency optimization</p>
-                <div class="skill-level">
-                    <div class="skill-progress" style="width: 85%"></div>
-                </div>
-            </div>
-            <div class="skill-card" onclick="animateSkill(this)">
-                <div class="skill-icon">🔧</div>
-                <h3>Development & Deployment</h3>
-                <p>FastAPI, Streamlit, Docker containerization, and cloud deployment solutions</p>
-                <div class="skill-level">
-                    <div class="skill-progress" style="width: 80%"></div>
-                </div>
-            </div>
-            <div class="skill-card" onclick="animateSkill(this)">
-                <div class="skill-icon">🎯</div>
-                <h3>Project Leadership</h3>
-                <p>Agile methodologies, cross-functional collaboration, and strategic business alignment</p>
-                <div class="skill-level">
-                    <div class="skill-progress" style="width: 85%"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section (3D Landscape Tabs with Sticky Stacking) -->
-    <section id="projects" class="section">
-        <h2>Featured Projects</h2>
-        <h4>Due to cold start, it may take time to load up live demo</h4>
-        <div class="projects-stack">
-            <!-- Order updated per user request: Lexi Law Agent, Stock Analyst Agent, Real‑Estate Agent, Logistic Trip Planner -->
-            <!-- Lexi Law Agent -->
-            <article class="project-tab" data-repo="Rajatsharma786/lexi_lawagent" data-title="Lexi Law Agent" data-live="https://lexilawagent-gvgac4c0fgbzcha0.australiaeast-01.azurewebsites.net" data-thumb="Lexi_Law_agent.png">
-                <div class="tab-bg" aria-hidden="true"></div>
-                <div class="tab-content">
-                    <div class="tab-header">
-                        <div class="tab-icon"></div>
-                        <h3 class="tab-title">Lexi Law Agent</h3>
-                    </div>
-                    <p class="tab-desc">Lexi Law Agent is an AI legal assistant that uses domain-specific embeddings and retrieval to interpret Victorian legislation, generate court forms, and analyze legal documents. The developer ingested and precisely chunked 130+ PDFs and used a Hugging Face sentence-transformers Legal-BERT model for domain-tuned embeddings, improving chunking, retrieval, and reranking accuracy. A multi-agent pipeline combines OCR, ChromaDB vector search, cross-encoder reranking, and Redis caching to deliver low-latency, production-ready LLM responses on Azure.</p>
-                    <!-- Technology tags describing the stack used in this project -->
-                    <div class="project-tags">
-                        <span class="tag">Streamlit</span>
-                        <span class="tag">Azure Blob</span>
-                        <span class="tag">Azure Postgres</span>
-                        <span class="tag">OpenAI</span>
-                        <span class="tag">Redis Cloud</span>
-                        <span class="tag">Azure Pipelines</span>
-                        <span class="tag">Arize Phoenix</span>
-                        <span class="tag">RAG</span>
-                        <span class="tag">Async Batch Chunking</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">HuggingFace Sentence Transformer</span>
-                        <span class="tag">Docker</span>
-                    </div>
-                    <div class="tab-links">
-                        <a class="project-link" target="_blank" rel="noopener" data-kind="live">Live Demo</a>
-                        <a class="project-link" target="_blank" rel="noopener" data-kind="code">GitHub</a>
-                    </div>
-                </div>
-            </article>
-            <!-- Stock Analyst Agent -->
-            <article class="project-tab" data-repo="Rajatsharma786/Financial_analyst" data-title="Stock Analyst Agent" data-live="https://financial-analyst-898280458899.australia-southeast1.run.app" data-thumb="Stock_agent.png">
-                <div class="tab-bg" aria-hidden="true"></div>
-                <div class="tab-content">
-                    <div class="tab-header">
-                        <div class="tab-icon"></div>
-                        <h3 class="tab-title">Stock Analyst Agent</h3>
-                    </div>
-                    <p class="tab-desc">The Financial Analyst Assistant leverages advanced AI models to analyze market data, extract meaningful signals, and generate concise, actionable insights for investors. It combines automated quantitative metrics, fundamental indicators, and contextual news synthesis to support informed decision-making and personalized portfolio monitoring. Designed with secure user authentication and configurable newsletter automation, the tool streamlines routine analysis and delivers tailored updates while enabling users to manage preferences and favorite stocks.</p>
-                    <div class="project-tags">
-                        <span class="tag">Streamlit</span>
-                        <span class="tag">Github Action</span>
-                        <span class="tag">Langchain</span>
-                        <span class="tag">API Integration</span>
-                        <span class="tag">Azure Postgres</span>
-                        <span class="tag">OpenAI</span>
-                        <span class="tag">Google Cloud Scheduler</span>
-                        <span class="tag">SMTP server</span>
-                        <span class="tag">Google Cloud Web Services</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">Docker</span>
-                    </div>
-                    <div class="tab-links">
-                        <a class="project-link" target="_blank" rel="noopener" data-kind="live">Live Demo</a>
-                        <a class="project-link" target="_blank" rel="noopener" data-kind="code">GitHub</a>
-                    </div>
-                </div>
-            </article>
-            <!-- Real‑Estate Agent -->
-            <article class="project-tab" data-repo="Rajatsharma786/RealEstate" data-title="Real‑Estate Agent" data-live="https://real-estate-app-809802924109.asia-southeast1.run.app" data-thumb="Real_estate.png">
-                <div class="tab-bg" aria-hidden="true"></div>
-                <div class="tab-content">
-                    <div class="tab-header">
-                        <div class="tab-icon"></div>
-                        <h3 class="tab-title">Real‑Estate Agent</h3>
-                    </div>
-                    <p class="tab-desc">RealEstate is an AI-powered real estate analytics platform that transforms natural language into powerful data insights. The system allows users to inquire about property options, such as available homes in a specified area within a certain budget, and then uses advanced language models to generate customized analytical reports. These reports can be effortlessly delivered via email, offering users timely insights and summaries without requiring any technical expertise. The platform’s intelligent features and user-friendly interface streamline the process of researching and reporting on property market trends.</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">LangGraph</span>
-                        <span class="tag">RAG</span>
-                        <span class="tag">OpenAI</span>
-                        <span class="tag">PostgreSQL</span>
-                        <span class="tag">Redis Cloud</span>
-                        <span class="tag">Streamlit</span>
-                        <span class="tag">JWT</span>
-                        <span class="tag">SMTP Server</span>
-                        <span class="tag">Dockerfile</span>
-                        <span class="tag">Google Cloud Services</span>
-                    </div>
-                    <div class="tab-links">
-                        <a class="project-link" target="_blank" rel="noopener" data-kind="live">Live Demo</a>
-                        <a class="project-link" target="_blank" rel="noopener" data-kind="code">GitHub</a>
-                    </div>
-                </div>
-            </article>
-            <!-- Logistic Trip Planner Agent -->
-            <article class="project-tab" data-repo="Rajatsharma786/logistic_trip_planner" data-title="Logistic Trip Planner Agent" data-live="https://logistic-agent-1077932806589.australia-southeast2.run.app" data-thumb="logistic.jpg">
-                <div class="tab-bg" aria-hidden="true"></div>
-                <div class="tab-content">
-                    <div class="tab-header">
-                        <div class="tab-icon"></div>
-                        <h3 class="tab-title">Logistic Trip Planner Agent</h3>
-                    </div>
-                    <p class="tab-desc">Copilot said: Logistic Trip Planner Agent is an AI-driven
-Logistic Trip Planner Agent is an AI-driven logistics platform that blends machine learning and retrieval-augmented generation to turn live weather, traffic, and planning documents into concise route intelligence. It provides ML-powered ETA predictions and contextual explanations through a hybrid agent, delivering actionable insights via an API-first, container-ready service while abstracting away model and data complexity.</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">XGBoost</span>
-                        <span class="tag">OpenAI</span>
-                        <span class="tag">ChromaDB</span>
-                        <span class="tag">Retrieval Augmented Generation</span>
-                        <span class="tag">Traffic API</span>
-                        <span class="tag">Bureau of Meteorology API</span>
-                        <span class="tag">FastAPI</span>
-                        <span class="tag">Docker</span>
-                        <span class="tag">Google Cloud Run</span>
-                    </div>
-                    <div class="tab-links">
-                        <a class="project-link" target="_blank" rel="noopener" data-kind="live">Live Demo</a>
-                        <a class="project-link" target="_blank" rel="noopener" data-kind="code">GitHub</a>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="contact">
-            <h2>Let's Connect</h2>
-            <p>Ready to collaborate on your next data science or AI project? Let's transform your business with intelligent solutions.</p>
-            <div class="contact-links">
-                <a href="mailto:rajatsharma0101786@outlook.com" class="contact-link">
-                    📧 Email
-                </a>
-                <a href="www.linkedin.com/in/rajatsharma786" class="contact-link">
-                    💼 LinkedIn
-                </a>
-                <a href="https://github.com/Rajatsharma786" class="contact-link">
-                    🐙 GitHub
-                </a>
-                <a href="tel:+61406443551" class="contact-link">
-                    📱 +61 406 443 551
-                </a>
-                <a href="#" class="contact-link">
-                    📍 Melbourne, VIC, Australia
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Create sophisticated particle system
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 30;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 25 + 's';
-                particle.style.animationDuration = (Math.random() * 15 + 15) + 's';
-                // Vary particle sizes for depth
-                const size = Math.random() * 2 + 0.5;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        // Skill card animation
-        function animateSkill(card) {
-            card.style.transform = 'scale(1.05) rotate(2deg)';
-            setTimeout(() => {
-                card.style.transform = 'scale(1) rotate(0deg)';
-            }, 200);
-        }
-
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Navbar background change on scroll
-        // For the minimalist dark theme the navbar stays transparent and does not
-        // change based on scroll. This event handler is intentionally left blank.
-        window.addEventListener('scroll', () => {
-            // no op
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Initialize particles
-        createParticles();
-
-        // Project card hover effects
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Typing effect for hero text
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-        }
-
-        // Initialize typing effect after page load
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const heroTitle = document.querySelector('.hero h1');
-                if (heroTitle) {
-                    typeWriter(heroTitle, 'Rajat Sharma', 150);
-                }
-            }, 500);
-        });
-    </script>
-    <!-- External libraries for 3D and motion -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="app.js"></script>
+function App() {
+  return h(React.Fragment, null,
+    h("nav", null, h("b", null, "RS"), h("div", null, ["about","experience","skills","projects","contact"].map(s => h("a", { href: "#" + s, key: s }, s[0].toUpperCase() + s.slice(1))))),
+    h("header", { id: "hero" }, h(Circles), h("div", { className: "hc" },
+      h("small", null, "Hello, I’m"),
+      h("h1", null, h("span", null, ME.name)),
+      h(Typewriter, { words: ME.roles }),
+      h("div", { className: "btns" }, h("a", { className: "btn p", href: "#projects" }, "View projects"), h("a", { className: "btn", href: "#contact" }, "Get in touch"))),
+      h("div", { className: "scroll" })),
+    Sec("about", "About", h(Reveal, null, h("p", { className: "about" }, ME.about),
+      h("div", { className: "stats" }, STATS.map(s => h("div", { key: s[1] }, h("b", null, s[0]), h("span", null, s[1])))))),
+    Sec("experience", "Experience", EXP.map(e => h(Reveal, { key: e.org }, h("div", { className: "card" },
+      h("h3", null, e.role + " · " + e.org), h("div", { className: "meta" }, e.when),
+      h("ul", null, e.pts.map(p => h("li", { key: p }, p))))))),
+    Sec("skills", "Skills", h("div", { className: "grid sk" }, SKILLS.map(s => h(Reveal, { key: s[0] }, h("div", { className: "card" }, h("h3", null, s[0]), h(Chips, { items: s[1] })))))),
+    Sec("projects", "Projects", h("div", { className: "grid" }, PROJECTS.map((p, i) => h(Reveal, { key: p.t }, h("div", { className: "card" },
+      h("div", { className: "num" }, "0" + (i + 1)), h("h3", null, p.t), h("p", { style: { color: "var(--mu)", margin: "8px 0" } }, p.d),
+      h("ul", null, p.pts.map(x => h("li", { key: x }, x))), h(Chips, { items: p.tech })))))),
+    h("section", { id: "contact", className: "contact" }, h(Reveal, null, h("h2", null, "Contact"),
+      h("p", null, "Open to Gen AI and agent engineering roles. Let’s talk."),
+      h("div", { className: "btns" },
+        h("a", { className: "btn p", href: "mailto:" + ME.email }, ME.email),
+        h("a", { className: "btn", href: ME.github, target: "_blank", rel: "noopener" }, "GitHub"),
+        h("a", { className: "btn", href: "tel:" + ME.phone.replace(/\s/g, "") }, ME.phone)))),
+    h("footer", null, "© " + new Date().getFullYear() + " Rajat Sharma · Melbourne, VIC")
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(h(App));
+</script>
 </body>
 </html>
