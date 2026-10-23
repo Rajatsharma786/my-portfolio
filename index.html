@@ -1,195 +1,308 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rajat Sharma | Gen AI Engineer</title>
-<meta name="description" content="Gen AI Engineer building agents, RAG pipelines and document AI on Azure and GCP.">
-<style>
-:root{--bg:#242424;--card:#2b2b2b;--line:#3a3a3a;--tx:#f5f5f5;--mu:#a3a3a3;--ac:#f7ab0a;--ac2:#f7ab0a}
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--tx);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-a{color:inherit;text-decoration:none}
-nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;background:rgba(36,36,36,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-nav b{letter-spacing:.08em}
-nav div a{margin-left:22px;color:var(--mu);font-size:14px;transition:color .2s}
-nav div a:hover{color:var(--ac2)}
-#hero{position:relative;height:100vh;min-height:560px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
-.circ{position:absolute;left:50%;top:50%;border:1px solid #3d3d3d;border-radius:50%;transform:translate(-50%,-50%);animation:pu 5s ease-in-out infinite}
-.circ.g{border-color:rgba(247,171,10,.45)}
-@keyframes pu{50%{transform:translate(-50%,-50%) scale(1.07);opacity:.45}}
-.hc{position:relative;z-index:2;padding:0 5vw}
-.hc small{color:var(--ac2);letter-spacing:.3em;text-transform:uppercase;font-size:13px}
-.hc h1{font-size:clamp(2.4rem,7vw,5rem);line-height:1.1;margin:14px 0}
-.hc h1 span{color:var(--ac)}
-.role{font-size:clamp(1.1rem,3vw,1.7rem);color:var(--mu);min-height:2.2em}
-.cur{display:inline-block;width:2px;height:1em;background:var(--ac2);margin-left:3px;vertical-align:-3px;animation:bl 1s steps(1) infinite}
-@keyframes bl{50%{opacity:0}}
-.btns{margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn{padding:11px 24px;border-radius:999px;border:1px solid var(--ac);font-size:14px;transition:transform .2s,background .2s}
-.btn:hover{background:var(--ac);color:#242424}
-.btn.p{background:var(--ac);color:#242424}
-.scroll{position:absolute;bottom:22px;left:50%;width:22px;height:36px;border:2px solid var(--mu);border-radius:12px;z-index:2;transform:translateX(-50%)}
-.scroll:after{content:"";position:absolute;left:50%;top:7px;width:4px;height:7px;margin-left:-2px;background:var(--ac2);border-radius:2px;animation:sc 1.6s infinite}
-@keyframes sc{60%{transform:translateY(12px);opacity:0}}
-section{max-width:1100px;margin:0 auto;padding:96px 5vw}
-h2{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:34px}
-h2:before{content:"";display:inline-block;width:34px;height:3px;background:var(--ac);margin-right:14px;vertical-align:middle}
-.rv{opacity:0;transform:translateY(34px);transition:opacity .7s ease,transform .7s ease}
-.rv.in{opacity:1;transform:none}
-.about{font-size:1.1rem;color:var(--mu);max-width:760px}
-.stats{display:flex;gap:30px;flex-wrap:wrap;margin-top:30px}
-.stats div b{display:block;font-size:2rem;color:var(--ac2)}
-.stats div span{color:var(--mu);font-size:13px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:20px;transition:transform .25s,border-color .25s,box-shadow .25s}
-.card:hover{transform:translateY(-3px);border-color:var(--ac);box-shadow:0 10px 30px rgba(0,0,0,.35)}
-.card h3{font-size:1.2rem}
-.meta{color:var(--ac2);font-size:13px;margin:2px 0 10px}
-.card ul{padding-left:18px;color:var(--mu)}
-.card li{margin:5px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.grid .card{margin:0}
-.num{color:var(--ac);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
-.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
-.chip{font-size:12px;padding:3px 10px;border-radius:999px;background:rgba(247,171,10,.08);border:1px solid rgba(247,171,10,.35);color:var(--ac2);transition:background .2s,color .2s}
-.chip:hover{background:var(--ac);color:#242424}
-.sk h3{font-size:1rem;color:var(--tx)}
-.contact{text-align:center}
-.contact p{color:var(--mu);margin-bottom:22px}
-footer{text-align:center;color:var(--mu);font-size:13px;padding:30px;border-top:1px solid var(--line)}
-@media(max-width:640px){nav div a{margin-left:12px}}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}*{animation:none!important}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rajat Sharma, Gen AI Engineer building useful AI products, agents, document intelligence and automation.">
+  <title>Rajat Sharma | Gen AI Engineer</title>
+  <style>
+    :root{--bg:#222;--surface:#292929;--surface-2:#252525;--line:#3b3b3b;--text:#f5f5f5;--muted:#aaa;--accent:#ffb000;--max:1120px}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{background:var(--bg);color:var(--text);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max),90%);margin-inline:auto}
+    .nav{position:fixed;inset:0 0 auto;z-index:20;background:rgba(34,34,34,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07)}
+    .nav-inner{height:70px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;letter-spacing:.08em;font-size:1.05rem}.brand span{color:var(--accent)}
+    .nav-links{display:flex;gap:26px;color:var(--muted);font-size:.9rem}.nav-links a:hover,.nav-links a:focus{color:var(--accent)}
+    .menu-button{display:none;background:none;color:var(--text);border:1px solid var(--line);padding:7px 10px;border-radius:8px}
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:130px 0 90px;isolation:isolate}
+    .hero-orbits{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+    .orbit{position:absolute;left:50%;top:50%;width:var(--orbit-size);height:var(--orbit-size);border:1px solid rgba(255,255,255,.10);border-radius:50%;transform:translate(-50%,-50%);animation:orbit-pulse 5s ease-in-out infinite;animation-delay:var(--delay,0s)}
+    .orbit.accent{border-color:rgba(255,176,0,.42)}
+    @keyframes orbit-pulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.78}50%{transform:translate(-50%,-50%) scale(1.055);opacity:.35}}
+    .hero-content{position:relative;z-index:2;max-width:900px;animation:hero-enter 1s cubic-bezier(.2,.7,.2,1) both}
+    @keyframes hero-enter{from{opacity:0;transform:translateY(24px);filter:blur(5px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+    .hero h1{margin:18px 0 8px}
+    .hero-copy{margin-inline:auto;min-height:2em}
+    .type-role{font-size:clamp(1.1rem,2.7vw,1.65rem);color:var(--muted);min-height:2.2em;margin-top:8px}
+    .type-cursor{display:inline-block;width:2px;height:1em;background:var(--accent);margin-left:4px;vertical-align:-3px;animation:cursor-blink 1s steps(1) infinite}
+    @keyframes cursor-blink{50%{opacity:0}}
+    .scroll-indicator{position:absolute;bottom:25px;left:50%;width:22px;height:36px;border:2px solid #777;border-radius:12px;transform:translateX(-50%);z-index:2}
+    .scroll-indicator:after{content:"";position:absolute;left:50%;top:7px;width:4px;height:7px;margin-left:-2px;background:var(--accent);border-radius:2px;animation:scroll-dot 1.6s infinite}
+    @keyframes scroll-dot{60%{transform:translateY(12px);opacity:0}}
+    .eyebrow{color:var(--accent);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+    h1{font-size:clamp(3rem,7vw,6rem);line-height:1.03;letter-spacing:-.055em;margin:18px 0}
+    h1 span{color:var(--accent)}
+    .hero-copy{max-width:680px;color:#c0c0c0;font-size:clamp(1rem,2vw,1.18rem)}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .button{display:inline-flex;align-items:center;justify-content:center;border:1px solid #555;border-radius:999px;padding:11px 18px;font-weight:650;font-size:.92rem;transition:transform .2s,border-color .2s,background .2s}
+    .button:hover{transform:translateY(-2px);border-color:var(--accent)}.button.primary{background:var(--accent);border-color:var(--accent);color:#191919}
+    section{padding:88px 0}
+    .section-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:34px}
+    h2{font-size:clamp(2rem,4vw,3.15rem);line-height:1.1;letter-spacing:-.04em}
+    .section-intro{max-width:520px;color:var(--muted)}
+    .about-copy{max-width:850px;color:#c5c5c5;font-size:1.1rem}
+    .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:34px}
+    .stat{border-top:1px solid var(--line);padding:20px 8px 0 0}
+    .stat strong{display:block;color:var(--accent);font-size:clamp(1.8rem,3.5vw,2.55rem);line-height:1.2;letter-spacing:-.04em}
+    .stat span{display:block;color:var(--muted);font-size:.85rem;margin-top:8px}
+    .company{border:1px solid var(--line);border-radius:20px;background:var(--surface);padding:28px;margin-bottom:20px}
+    .company.featured{border-color:rgba(255,176,0,.85);box-shadow:0 14px 45px rgba(0,0,0,.12)}
+    .company-header{display:flex;justify-content:space-between;gap:20px;align-items:start;margin-bottom:22px}
+    .company-title{display:flex;gap:15px;align-items:start}
+    .company-mark{width:44px;height:44px;flex:0 0 44px;border-radius:13px;background:#37332a;color:var(--accent);display:grid;place-items:center;font-weight:800}
+    h3{font-size:1.18rem;line-height:1.35}
+    .role{color:#c9c9c9;margin-top:4px;font-size:.94rem}.date{color:var(--accent);white-space:nowrap;font-size:.84rem;padding-top:3px}
+    .company-summary{color:#b9b9b9;max-width:850px;margin:0 0 22px 59px}
+    .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-left:59px}
+    .project{background:var(--surface-2);border:1px solid #3c3c3c;border-radius:15px;padding:20px;min-width:0;transition:transform .2s,border-color .2s}
+    .project:hover{transform:translateY(-3px);border-color:rgba(255,176,0,.55)}
+    .project-top{display:flex;align-items:center;gap:11px;margin-bottom:13px}
+    .project-icon{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:#37332a;color:var(--accent);flex:0 0 38px}
+    .project-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    .project p{color:#b9b9b9;font-size:.92rem}
+    .impact{display:inline-flex;margin-top:14px;padding:5px 9px;border-radius:7px;background:rgba(255,176,0,.09);color:var(--accent);font-size:.78rem;font-weight:650}
+    details{margin-top:13px;border-top:1px solid #3c3c3c;padding-top:11px}
+    summary{cursor:pointer;color:#ddd;font-size:.84rem;font-weight:650}
+    details p{margin-top:9px;font-size:.83rem!important;color:#999!important}
+    .compact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+    .selected-projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .selected-project{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:24px;transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease}
+    .selected-project:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;background:linear-gradient(125deg,rgba(255,176,0,.08),transparent 45%);transition:opacity .28s}
+    .selected-project:hover{transform:translateY(-4px);border-color:rgba(255,176,0,.65);box-shadow:0 14px 34px rgba(0,0,0,.18)}
+    .selected-project:hover:before{opacity:1}
+    .selected-project h3,.selected-project p,.selected-project ul,.selected-project .chips{position:relative}
+    .selected-project p{color:#b9b9b9;margin:9px 0;font-size:.93rem}
+    .selected-project ul{padding-left:19px;margin-top:12px;color:#aaa;font-size:.86rem}
+    .selected-project li{margin:5px 0}
+    .selected-project .chip{transition:background .2s,color .2s,border-color .2s}
+    .selected-project .chip:hover{background:var(--accent);color:#222;border-color:var(--accent)}
+    .compact-project{border:1px solid var(--line);border-radius:15px;background:var(--surface);padding:22px}
+    .compact-project p{color:#b9b9b9;margin-top:9px;font-size:.93rem}
+    .compact-project .impact{margin-top:13px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}
+    .chip{border:1px solid #444;border-radius:999px;padding:5px 10px;color:#bbb;font-size:.78rem}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+    .skill-card{position:relative;isolation:isolate;overflow:hidden;border:1px solid var(--line);border-radius:15px;background:var(--surface);padding:22px;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+    .skill-card:before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,176,0,.14),transparent 65%);transition:opacity .3s ease}
+    .skill-card:hover,.skill-card:focus-within{transform:translateY(-6px);border-color:rgba(255,176,0,.7);box-shadow:0 16px 38px rgba(0,0,0,.2),0 0 0 1px rgba(255,176,0,.06)}
+    .skill-card:hover:before,.skill-card:focus-within:before{opacity:1}
+    .skill-card h3{margin-bottom:12px;transition:color .25s}.skill-card:hover h3{color:var(--accent)}.skill-card p{color:var(--muted);font-size:.9rem}
+    .skill-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}
+    .skill-tag{font-size:.75rem;border:1px solid rgba(255,176,0,.28);border-radius:999px;padding:4px 9px;color:#bdbdbd;transition:background .22s,color .22s,border-color .22s,transform .22s}
+    .skill-card:hover .skill-tag{border-color:rgba(255,176,0,.48)}
+    .skill-tag:hover{background:var(--accent);color:#222;border-color:var(--accent);transform:translateY(-2px)}
+    .contact{border-top:1px solid var(--line);text-align:center}.contact p{color:var(--muted);margin-top:14px}
+    .contact .actions{justify-content:center}
+    footer{border-top:1px solid var(--line);padding:22px 0;color:#858585;font-size:.82rem}
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.hero-content{animation:none}.orbit,.scroll-indicator:after,.type-cursor{animation:none}*{transition:none!important}}
+    @media(max-width:760px){
+      .nav-links{display:none;position:absolute;top:69px;left:0;right:0;padding:18px 5%;background:#222;border-bottom:1px solid var(--line);flex-direction:column;gap:15px}
+      .nav-links.open{display:flex}.menu-button{display:block}.hero{min-height:85vh}.orbit{left:50%}.hero h1{font-size:clamp(2.8rem,12vw,4.7rem)}
+      section{padding:66px 0}.section-heading{display:block}.section-intro{margin-top:14px}
+      .stats{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:26px}
+      .company{padding:20px}.company-header{display:block}.date{display:block;margin:7px 0 0 59px}
+      .company-summary,.project-grid{margin-left:0}.project-grid,.compact-grid{grid-template-columns:1fr}
+      .skills-grid{grid-template-columns:1fr}.selected-projects{grid-template-columns:1fr}.company-summary{margin-top:15px}
+    }
+  </style>
 </head>
 <body>
-<div id="root"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
-<script>
-const h = React.createElement;
-const { useState, useEffect, useRef } = React;
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Rajat Sharma home">RS</a>
+      <button class="menu-button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-/* ---------- CONTENT: edit here ---------- */
-const ME = {
-  name: "Rajat Sharma",
-  roles: ["Gen AI Engineer", "Agentic AI Builder", "RAG & Document AI", "LLM Evals & Observability"],
-  email: "rajatsharma0101786@outlook.com",
-  phone: "0406 443 551",
-  github: "https://github.com/Rajatsharma786",
-  about: "I’m a Gen AI Engineer based in Melbourne with 3+ years of experience shipping AI products across SaaS, insurance, finance and supply chain. I build multi-agent systems, RAG pipelines and document-extraction workflows on Azure and GCP, and I trace and evaluate them so they stay reliable in production. I build with Claude Code using spec-first delivery."
-};
-const STATS = [["3+","Years shipping AI"],["150/day","Invoices processed"],["78→94%","Extraction accuracy"],["20+","Customer reports automated"]];
-const EXP = [
-  { role: "Gen AI Engineer", org: "Aera", when: "Nov 2025 – Present", pts: [
-    "Multi-tenant SaaS API on PostgreSQL with Row-Level Security and per-request org_id isolation.",
-    "Content pipeline across 3 image models, orchestrated with LangGraph on Redis queues with ARQ workers.",
-    "Invoice OCR pipeline on Azure Document Intelligence at 150 invoices/day; accuracy raised from 78% to 94% with preprocessing.",
-    "Phoenix tracing, Prometheus metrics, a supervisor-agent loop, and a GitHub Actions CI/CD pipeline for an on-prem deployment behind Caddy.",
-    "Copilot Studio sales agent for Teams (cut research time by 50%) and a Python reporting pipeline for 20+ customers with LLM summaries under validation rules."
-  ]},
-  { role: "Simulation Data Consultant", org: "Simwell", when: "Aug 2023 – Mar 2025", pts: [
-    "Supply chain simulation models: network efficiency up 18%, logistics costs down 12%.",
-    "Power BI dashboards for 8 businesses, plus a RAG assistant on Streamlit with AWS and Snowflake.",
-    "Led a Scrum team of 5."
-  ]},
-  { role: "Data Science Analyst", org: "WNS", when: "Feb 2022 – Jun 2023", pts: [
-    "Claim-propensity models (Random Forest, GLM, XGBoost) in insurance, accuracy up 22%.",
-    "Automated daily scoring, retraining and monitoring pipelines in Python and SQL."
-  ]}
-];
-const SKILLS = [
-  ["GenAI & Agents", ["LangGraph","LangChain","CrewAI","RAG","Multi-agent","Pydantic","Claude Code","MCP-style tools","Sarvam Saaras v3"]],
-  ["Evals & Observability", ["Arize Phoenix","Prometheus","Guardrails","Output evals"]],
-  ["Azure & Microsoft", ["Document Intelligence","Blob & Queue","Copilot Studio","Power Automate","Dataverse","PII Detection","Power BI"]],
-  ["Cloud & DevOps", ["Azure","GCP","AWS","Docker","GitHub Actions","Caddy","NSSM"]],
-  ["Backend & Data", ["Python","FastAPI","ARQ","Redis","PostgreSQL","Azure SQL","ChromaDB","Stripe"]],
-  ["ML", ["XGBoost","OCR","NLP","PCA","Feature engineering"]]
-];
-/* Add or reorder projects here. CallIQ first, Lexi Law second. */
-const PROJECTS = [
-  { t: "CallIQ", d: "AI call-QA assistant built with a team of 3. Users upload call recordings and receive a per-call or bulk report scoring each call against the customer’s pitch script and their own checkpoints.", pts: [
-    "Claude Opus scoring with checkpoints loaded into a Pydantic model for validated output.",
-    "Language-routed transcription: Sarvam Saaras v3 with diarization for Hindi and Indian English, GPT-4o-transcribe-diarize for other English.",
-    "PII redacted with Azure PII detection before the LLM; sensitive columns masked in Azure SQL."
-  ], tech: ["Claude Opus","Pydantic","Sarvam","GPT-4o Transcribe","Azure SQL","Azure PII","Dynamic Data Masking"] },
-  { t: "Lexi Law Agent", d: "Multi-agent legal assistant over Victorian legislation that accepts PDF and image uploads alongside text queries.", pts: [
-    "RAG with Legal-BERT, ChromaDB and OCR; batching and async cut retrieval time by 45%.",
-    "Azure Web Apps via Azure DevOps CI/CD with Redis caching and Phoenix tracing: ~60% faster responses."
-  ], tech: ["LangGraph","RAG","ChromaDB","Legal-BERT","Azure","Redis","Arize Phoenix"] },
-  { t: "Financial Analyst Agent", d: "ReAct stock-analysis agent using live market data and a RAG layer for financial retrieval.", pts: [
-    "LangGraph and GPT-4o-mini with the OpenBB API.",
-    "Docker and CI/CD on GCP; a scheduler emails daily stock summaries."
-  ], tech: ["LangGraph","OpenAI","OpenBB","Azure PostgreSQL","GCP","Docker"] },
-  { t: "Logistic Trip Planner AI Agent", d: "Logistics planner that predicts ETAs from live traffic and weather and answers questions with multimodal RAG.", pts: [
-    "XGBoost ETA model: accuracy up 28%; async API calls cut latency by 35%.",
-    "LangChain and ChromaDB over text, tables and images; deployed on Cloud Run."
-  ], tech: ["FastAPI","XGBoost","LangChain","ChromaDB","Cloud Run","Streamlit"] },
-  { t: "Real Estate Agentic RAG System", d: "Agentic system for property research and market insights.", pts: [
-    "Column-description embeddings in PGVector behind SQL guardrails: query reliability and schema accuracy up 30%.",
-    "Cloud Run with Streamlit, Redis caching and authentication."
-  ], tech: ["LangGraph","PostgreSQL","PGVector","Redis","Cloud Run"] }
-];
-/* ---------- helpers ---------- */
-function Reveal({ children, cls = "" }) {
-  const r = useRef();
-  useEffect(() => {
-    const io = new IntersectionObserver(e => e.forEach(x => x.isIntersecting && (x.target.classList.add("in"), io.disconnect())), { threshold: .12 });
-    io.observe(r.current); return () => io.disconnect();
-  }, []);
-  return h("div", { ref: r, className: "rv " + cls }, children);
-}
-function Typewriter({ words }) {
-  const [txt, setTxt] = useState("");
-  useEffect(() => {
-    let i = 0, j = 0, del = false, t;
-    const tick = () => {
-      const w = words[i];
-      j += del ? -1 : 1; setTxt(w.slice(0, j));
-      let d = del ? 40 : 90;
-      if (!del && j === w.length) { del = true; d = 1400; }
-      else if (del && j === 0) { del = false; i = (i + 1) % words.length; d = 300; }
-      t = setTimeout(tick, d);
-    };
-    tick(); return () => clearTimeout(t);
-  }, []);
-  return h("div", { className: "role" }, txt, h("span", { className: "cur" }));
-}
-function Circles() {
-  const sizes = [[220, "g"], [340, ""], [500, ""], [680, ""], [880, ""]];
-  return h("div", { "aria-hidden": "true" }, sizes.map((c, i) => h("span", { key: i, className: "circ " + c[1], style: { width: c[0], height: c[0], animationDelay: i * .5 + "s" } })));
-}
-const Chips = ({ items }) => h("div", { className: "chips" }, items.map(x => h("span", { className: "chip", key: x }, x)));
-const Sec = (id, title, body) => h("section", { id }, h(Reveal, null, h("h2", null, title)), body);
+  <main id="top">
+    <header class="hero" id="hero">
+      <div class="hero-orbits" aria-hidden="true">
+        <span class="orbit accent" style="--orbit-size:220px;--delay:0s"></span>
+        <span class="orbit" style="--orbit-size:340px;--delay:.35s"></span>
+        <span class="orbit" style="--orbit-size:500px;--delay:.7s"></span>
+        <span class="orbit" style="--orbit-size:680px;--delay:1.05s"></span>
+        <span class="orbit" style="--orbit-size:880px;--delay:1.4s"></span>
+      </div>
+      <div class="container hero-content">
+        <div class="eyebrow">Hello, I’m</div>
+        <h1>Rajat Sharma<span>.</span></h1>
+        <div class="type-role" aria-live="polite"><span id="typed-role">Gen AI Engineer</span><span class="type-cursor" aria-hidden="true"></span></div>
+        <p class="hero-copy">I build practical AI products and Automations that turn complex workflows into useful, reliable tools for teams and customers.</p>
+        <div class="actions" style="justify-content:center"><a class="button primary" href="#projects">View selected projects</a><a class="button" href="#contact">Get in touch</a></div>
+      </div>
+      <a class="scroll-indicator" href="#about" aria-label="Scroll to about section"></a>
+    </header>
 
-function App() {
-  return h(React.Fragment, null,
-    h("nav", null, h("b", null, "RS"), h("div", null, ["about","experience","skills","projects","contact"].map(s => h("a", { href: "#" + s, key: s }, s[0].toUpperCase() + s.slice(1))))),
-    h("header", { id: "hero" }, h(Circles), h("div", { className: "hc" },
-      h("small", null, "Hello, I’m"),
-      h("h1", null, h("span", null, ME.name)),
-      h(Typewriter, { words: ME.roles }),
-      h("div", { className: "btns" }, h("a", { className: "btn p", href: "#projects" }, "View projects"), h("a", { className: "btn", href: "#contact" }, "Get in touch"))),
-      h("div", { className: "scroll" })),
-    Sec("about", "About", h(Reveal, null, h("p", { className: "about" }, ME.about),
-      h("div", { className: "stats" }, STATS.map(s => h("div", { key: s[1] }, h("b", null, s[0]), h("span", null, s[1])))))),
-    Sec("experience", "Experience", EXP.map(e => h(Reveal, { key: e.org }, h("div", { className: "card" },
-      h("h3", null, e.role + " · " + e.org), h("div", { className: "meta" }, e.when),
-      h("ul", null, e.pts.map(p => h("li", { key: p }, p))))))),
-    Sec("skills", "Skills", h("div", { className: "grid sk" }, SKILLS.map(s => h(Reveal, { key: s[0] }, h("div", { className: "card" }, h("h3", null, s[0]), h(Chips, { items: s[1] })))))),
-    Sec("projects", "Projects", h("div", { className: "grid" }, PROJECTS.map((p, i) => h(Reveal, { key: p.t }, h("div", { className: "card" },
-      h("div", { className: "num" }, "0" + (i + 1)), h("h3", null, p.t), h("p", { style: { color: "var(--mu)", margin: "8px 0" } }, p.d),
-      h("ul", null, p.pts.map(x => h("li", { key: x }, x))), h(Chips, { items: p.tech })))))),
-    h("section", { id: "contact", className: "contact" }, h(Reveal, null, h("h2", null, "Contact"),
-      h("p", null, "Open to Gen AI and agent engineering roles. Let’s talk."),
-      h("div", { className: "btns" },
-        h("a", { className: "btn p", href: "mailto:" + ME.email }, ME.email),
-        h("a", { className: "btn", href: ME.github, target: "_blank", rel: "noopener" }, "GitHub"),
-        h("a", { className: "btn", href: "tel:" + ME.phone.replace(/\s/g, "") }, ME.phone)))),
-    h("footer", null, "© " + new Date().getFullYear() + " Rajat Sharma · Melbourne, VIC")
-  );
-}
-ReactDOM.createRoot(document.getElementById("root")).render(h(App));
-</script>
+    <section id="about">
+      <div class="container">
+        <div class="section-heading"><h2>A little about me.</h2><p class="section-intro">Product thinking, applied AI and engineering that works beyond the demo.</p></div>
+        <p class="about-copy">I’m a Gen AI Engineer with 3+ years of experience across SaaS, insurance, finance and supply chain. I build AI agents, retrieval systems, document intelligence workflows and automation, with a focus on customer outcomes, evaluation and production reliability.</p>
+        <div class="stats" aria-label="Professional highlights">
+          <div class="stat"><strong>3+</strong><span>Years of professional experience</span></div>
+          <div class="stat"><strong>4</strong><span>AI products delivered</span></div>
+          <div class="stat"><strong>4</strong><span>Business domains covered</span></div>
+          <div class="stat"><strong>3</strong><span>Cloud ecosystems: Azure, GCP and AWS</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading"><h2>Experience</h2><p class="section-intro">The products, workflows and business outcomes behind the job titles.</p></div>
+
+        <article class="company featured reveal">
+          <div class="company-header">
+            <div class="company-title"><div class="company-mark">A</div><div><h3>Aera</h3><div class="role">Gen AI Engineer</div></div></div>
+            <div class="date">Nov 2025 – Present</div>
+          </div>
+          <p class="company-summary">Building AI-powered products that streamline content creation, invoice processing, sales research and customer reporting.</p>
+          <div class="project-grid">
+            <div class="project">
+              <div class="project-top"><div class="project-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div><h3>AI Content Studio</h3></div>
+              <p>A content generation and publishing platform that helps teams create visual assets and distribute them across social channels, with analytics and billing in one workflow.</p>
+              <span class="impact">Multi-platform content workflow</span>
+              <details><summary>Engineering overview</summary><p>Multi-tenant SaaS platform with PostgreSQL row-level security, three image models, LangGraph orchestration, Redis-backed workers, OAuth publishing integrations and CI/CD deployment.</p></details>
+            </div>
+            <div class="project">
+              <div class="project-top"><div class="project-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></div><h3>Invoice Intelligence</h3></div>
+              <p>Automates invoice intake and data extraction, while giving reviewers a clear way to verify uncertain fields before records are saved.</p>
+              <span class="impact">78% → 94% extraction accuracy</span>
+              <details><summary>Engineering overview</summary><p>Email and attachment ingestion, Azure Document Intelligence classification and extraction, preprocessing, PostgreSQL persistence, confidence flags and an auditable human-review portal.</p></details>
+            </div>
+            <div class="project">
+              <div class="project-top"><div class="project-icon"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M8 9h8M8 13h5"/></svg></div><h3>Enterprise Sales Copilot</h3></div>
+              <p>A Teams-based assistant that helps sales users find relevant product information faster, with live web search when catalogue data isn’t enough.</p>
+              <span class="impact">50% less research time</span>
+              <details><summary>Engineering overview</summary><p>Microsoft Copilot Studio, Entra ID sign-in, Power Automate actions, Dataverse catalogue queries, scheduled data sync and user-triggered web search.</p></details>
+            </div>
+            <div class="project">
+              <div class="project-top"><div class="project-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 3 5-7"/></svg></div><h3>Automated Client Reporting</h3></div>
+              <p>Transforms data from multiple platforms into consistent customer reports, reducing manual preparation while checking AI-written summaries against strict rules.</p>
+              <span class="impact">10–20 hours saved monthly</span>
+              <details><summary>Engineering overview</summary><p>Python and REST API ingestion, SQL storage, Word-template generation, validated LLM summaries and a multi-tenant internal reporting dashboard.</p></details>
+            </div>
+          </div>
+        </article>
+
+        <article class="company reveal">
+          <div class="company-header">
+            <div class="company-title"><div class="company-mark">S</div><div><h3>Simwell</h3><div class="role">Simulation Data Consultant · Supply Chain & Logistics</div></div></div>
+            <div class="date">Aug 2023 – Mar 2025</div>
+          </div>
+          <p class="company-summary">Helped supply chain and logistics businesses improve network design, reduce operating costs and make planning decisions using simulation and analytics.</p>
+          <div class="compact-grid">
+            <div class="compact-project"><h3>Supply Chain Optimisation</h3><p>Simulation models that helped teams test network scenarios and identify more efficient logistics strategies.</p><span class="impact">18% higher network efficiency · 12% lower logistics costs</span></div>
+            <div class="compact-project"><h3>Business Analytics & RAG Assistant</h3><p>Power BI dashboards for eight businesses, alongside a Streamlit retrieval-augmented assistant for faster access to operational data and analysis.</p><span class="impact">Dashboards across 8 businesses</span></div>
+          </div>
+        </article>
+
+        <article class="company reveal">
+          <div class="company-header">
+            <div class="company-title"><div class="company-mark">W</div><div><h3>WNS</h3><div class="role">Data Science Analyst · Insurance & Financial Services</div></div></div>
+            <div class="date">Feb 2022 – Jun 2023</div>
+          </div>
+          <p class="company-summary">Built predictive analytics and automated model workflows to help insurance teams assess claims patterns and make better-informed decisions.</p>
+          <div class="compact-grid">
+            <div class="compact-project"><h3>Claims Prediction Models</h3><p>Applied Random Forest, GLM and XGBoost models to claims propensity, with feature selection and model refinement to improve predictive performance.</p><span class="impact">22% improvement in model accuracy</span></div>
+            <div class="compact-project"><h3>Scoring & Monitoring Automation</h3><p>Automated daily scoring, retraining and monitoring workflows using Python and SQL, with Tableau reporting for claims frequency, severity and exposure.</p><span class="impact">Automated recurring model workflows</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading"><h2>What I work with</h2><p class="section-intro">A practical toolkit for taking AI systems from idea to production.</p></div>
+        <div class="skills-grid">
+          <div class="skill-card"><h3>AI & Agent Systems</h3><p>LangGraph, LangChain, multi-agent orchestration, RAG, tool integration, prompt evaluation and guardrails.</p><div class="skill-tags"><span class="skill-tag">LangGraph</span><span class="skill-tag">LangChain</span><span class="skill-tag">RAG</span><span class="skill-tag">Agent orchestration</span></div></div>
+          <div class="skill-card"><h3>Cloud & Delivery</h3><p>Azure, Google Cloud, AWS, Docker, CI/CD, Azure DevOps, GitHub Actions and production monitoring.</p><div class="skill-tags"><span class="skill-tag">Azure</span><span class="skill-tag">GCP</span><span class="skill-tag">AWS</span><span class="skill-tag">CI/CD</span></div></div>
+          <div class="skill-card"><h3>Data & Backend</h3><p>Python, REST APIs, PostgreSQL, SQL, Redis, ChromaDB, document extraction and data pipelines.</p><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">Redis</span><span class="skill-tag">REST APIs</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading"><h2>Projects</h2><p class="section-intro">Independent builds exploring agentic workflows, retrieval and applied AI.</p></div>
+        <div class="selected-projects">
+          <article class="selected-project reveal"><h3>CallIQ</h3><p>AI call-quality assistant built with a team of three. Users upload call recordings and receive per-call or bulk reports scoring each call against the customer’s pitch script and checkpoints.</p><ul><li>Claude scoring with checkpoints loaded into validated Pydantic models.</li><li>Language-routed transcription for Hindi, Indian English and other English calls.</li><li>Personal information is redacted before LLM processing, with sensitive database columns masked.</li></ul><div class="chips"><span class="chip">Speech AI</span><span class="chip">Pydantic</span><span class="chip">Azure SQL</span><span class="chip">PII protection</span></div></article>
+          <article class="selected-project reveal"><h3>Lexi Law Agent</h3><p>A multi-agent legal assistant over Victorian legislation that accepts PDF and image uploads alongside text queries, returning grounded legal research responses.</p><ul><li>Legal-BERT, ChromaDB and OCR support retrieval across legal documents.</li><li>Batching and async retrieval improved retrieval speed by 45%.</li><li>Azure deployment, Redis caching and tracing support faster, more observable responses.</li></ul><div class="chips"><span class="chip">LangGraph</span><span class="chip">RAG</span><span class="chip">Azure</span><span class="chip">PostgreSQL</span></div></article>
+          <article class="selected-project reveal"><h3>Financial Analyst Agent</h3><p>A ReAct stock-analysis agent that combines live market data with retrieval to produce personalised stock research and summaries.</p><ul><li>Uses LangGraph, GPT-4o-mini and the OpenBB API for market research.</li><li>Scheduled workflows email daily stock summaries.</li><li>Docker and CI/CD support deployment on Google Cloud.</li></ul><div class="chips"><span class="chip">LangGraph</span><span class="chip">OpenBB</span><span class="chip">GCP</span><span class="chip">CI/CD</span></div></article>
+          <article class="selected-project reveal"><h3>Logistic Trip Planner AI Agent</h3><p>A logistics planner that predicts ETAs using live traffic and weather signals and answers operational questions with multimodal retrieval.</p><ul><li>XGBoost ETA model improved prediction performance by 28%.</li><li>Asynchronous API calls reduced latency by 35%.</li><li>Multimodal retrieval spans text, tables and images.</li></ul><div class="chips"><span class="chip">FastAPI</span><span class="chip">XGBoost</span><span class="chip">LangChain</span><span class="chip">Cloud Run</span></div></article>
+          <article class="selected-project reveal"><h3>Real Estate Agentic RAG System</h3><p>An agentic property research system for Australian property records, market insights and conversational exploration.</p><ul><li>PGVector retrieval with SQL guardrails improves query reliability and schema accuracy.</li><li>Redis caching and authentication support a more responsive research experience.</li><li>Deployed with Streamlit on Google Cloud Run.</li></ul><div class="chips"><span class="chip">LangGraph</span><span class="chip">PostgreSQL</span><span class="chip">pgvector</span><span class="chip">Redis</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Let’s build something useful.</h2>
+        <p>Interested in applied AI, agent systems and automation? Let’s connect.</p>
+        <div class="actions"><a class="button primary" href="mailto:rajatsharma0101786@outlook.com" id="email-link">Get in touch</a><a class="button" href="https://github.com/Rajatsharma786" target="_blank" rel="noreferrer">GitHub</a></div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container">© <span id="year"></span> Rajat Sharma · Melbourne, VIC</div></footer>
+  <script>
+    // Mobile navigation
+    const menuButton = document.querySelector('.menu-button');
+    const navLinks = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }));
+    // Restore the original rotating typewriter hero animation.
+    const roleNode = document.querySelector('#typed-role');
+    const roles = ['Gen AI Engineer', 'Agentic AI Builder', 'RAG & Document AI', 'LLM Evals & Observability'];
+    if (roleNode && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      let roleIndex = 0, charIndex = roles[0].length, deleting = false, timer;
+      const typeNext = () => {
+        const word = roles[roleIndex];
+        if (!deleting) {
+          charIndex++;
+          roleNode.textContent = word.slice(0, charIndex);
+          if (charIndex >= word.length) { deleting = true; timer = setTimeout(typeNext, 1450); return; }
+          timer = setTimeout(typeNext, 82);
+        } else {
+          charIndex--;
+          roleNode.textContent = word.slice(0, charIndex);
+          if (charIndex <= 0) { deleting = false; roleIndex = (roleIndex + 1) % roles.length; timer = setTimeout(typeNext, 260); return; }
+          timer = setTimeout(typeNext, 38);
+        }
+      };
+      timer = setTimeout(() => { deleting = true; typeNext(); }, 1500);
+    }
+    // Let the skills cards softly track pointer position for a subtle amber hover glow.
+    document.querySelectorAll('.skill-card').forEach(card => {
+      card.addEventListener('pointermove', event => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+        card.style.setProperty('--my', `${event.clientY - rect.top}px`);
+      });
+    });
+    // Reveal cards as they enter the viewport
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.08});
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    document.querySelector('#year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
