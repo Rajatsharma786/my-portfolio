@@ -135,7 +135,7 @@
         <div class="eyebrow">Hello, I’m</div>
         <h1>Rajat Sharma<span>.</span></h1>
         <div class="type-role" aria-live="polite"><span id="typed-role">Gen AI Engineer</span><span class="type-cursor" aria-hidden="true"></span></div>
-        <p class="hero-copy">I build practical AI products and Automations that turn complex workflows into useful, reliable tools for teams and customers.</p>
+        <p class="hero-copy">I build practical AI products that turn complex workflows into useful, reliable tools for teams and customers.</p>
         <div class="actions" style="justify-content:center"><a class="button primary" href="#projects">View selected projects</a><a class="button" href="#contact">Get in touch</a></div>
       </div>
       <a class="scroll-indicator" href="#about" aria-label="Scroll to about section"></a>
@@ -188,6 +188,12 @@
               <p>Transforms data from multiple platforms into consistent customer reports, reducing manual preparation while checking AI-written summaries against strict rules.</p>
               <span class="impact">10–20 hours saved monthly</span>
               <details><summary>Engineering overview</summary><p>Python and REST API ingestion, SQL storage, Word-template generation, validated LLM summaries and a multi-tenant internal reporting dashboard.</p></details>
+            </div>
+            <div class="project">
+              <div class="project-top"><div class="project-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>Internal Ticket Knowledge RAG</h3></div>
+              <p>An internal assistant that helps teams find reliable answers across support-ticket history and PDF procedures, with source citations and access controls.</p>
+              <span class="impact">Recall@10 improved from ~62% to ~86%</span>
+              <details><summary>Engineering overview</summary><p>Indexed 1,000+ resolved tickets using selective OCR, content-hash-based re-indexing, ticket-aware chunking, PostgreSQL pgvector hybrid search (vector + BM25), metadata filters and cross-encoder reranking. Added Azure OpenAI with Entra ID managed identities, department-level RBAC, Presidio PII masking, RAGAS evaluation gates, Arize Phoenix monitoring, and Redis caching that reached a 35% hit rate while reducing cost per query from ~$0.015 to ~$0.003.</p></details>
             </div>
           </div>
         </article>
@@ -265,7 +271,7 @@
     }));
     // Restore the original rotating typewriter hero animation.
     const roleNode = document.querySelector('#typed-role');
-    const roles = ['Gen AI Engineer',' System Design ', 'Agentic AI Builder', 'Workflow Automations ', ' RAG & Document AI', 'LLM Evals & Observability'];
+    const roles = ['Gen AI Engineer', 'Agentic AI Builder', 'RAG & Document AI', 'LLM Evals & Observability'];
     if (roleNode && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       let roleIndex = 0, charIndex = roles[0].length, deleting = false, timer;
       const typeNext = () => {
