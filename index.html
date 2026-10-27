@@ -146,7 +146,7 @@
         <div class="section-heading"><h2>A little about me.</h2><p class="section-intro">Product thinking, applied AI and engineering that works beyond the demo.</p></div>
         <p class="about-copy">I’m a Gen AI Engineer with 3+ years of experience across SaaS, insurance, finance and supply chain. I build AI agents, retrieval systems, document intelligence workflows and automation, with a focus on customer outcomes, evaluation and production reliability.</p>
         <div class="stats" aria-label="Professional highlights">
-          <div class="stat"><strong>3+</strong><span>Years of professional experience</span></div>
+          <div class="stat"><strong>3.5</strong><span>Years of professional experience</span></div>
           <div class="stat"><strong>4</strong><span>AI products delivered</span></div>
           <div class="stat"><strong>4</strong><span>Business domains covered</span></div>
           <div class="stat"><strong>3</strong><span>Cloud ecosystems: Azure, GCP and AWS</span></div>
@@ -171,6 +171,12 @@
               <span class="impact">Multi-platform content workflow</span>
               <details><summary>Engineering overview</summary><p>Multi-tenant SaaS platform with PostgreSQL row-level security, three image models, LangGraph orchestration, Redis-backed workers, OAuth publishing integrations and CI/CD deployment.</p></details>
             </div>
+<div class="project">
+              <div class="project-top"><div class="project-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>Internal Ticket Knowledge RAG</h3></div>
+              <p>An internal assistant that helps teams find reliable answers across support-ticket history and PDF procedures, with source citations and access controls.</p>
+              <span class="impact">Recall@10 improved from ~62% to ~86%</span>
+              <details><summary>Engineering overview</summary><p>Indexed 1,000+ resolved tickets using selective OCR, content-hash-based re-indexing, ticket-aware chunking, PostgreSQL pgvector hybrid search (vector + BM25), metadata filters and cross-encoder reranking. Added Azure OpenAI with Entra ID managed identities, department-level RBAC, Presidio PII masking, RAGAS evaluation gates, Arize Phoenix monitoring, and Redis caching that reached a 35% hit rate while reducing cost per query from ~$0.015 to ~$0.003.</p></details>
+            </div>
             <div class="project">
               <div class="project-top"><div class="project-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></div><h3>Invoice Intelligence</h3></div>
               <p>Automates invoice intake and data extraction, while giving reviewers a clear way to verify uncertain fields before records are saved.</p>
@@ -189,12 +195,7 @@
               <span class="impact">10–20 hours saved monthly</span>
               <details><summary>Engineering overview</summary><p>Python and REST API ingestion, SQL storage, Word-template generation, validated LLM summaries and a multi-tenant internal reporting dashboard.</p></details>
             </div>
-            <div class="project">
-              <div class="project-top"><div class="project-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>Internal Ticket Knowledge RAG</h3></div>
-              <p>An internal assistant that helps teams find reliable answers across support-ticket history and PDF procedures, with source citations and access controls.</p>
-              <span class="impact">Recall@10 improved from ~62% to ~86%</span>
-              <details><summary>Engineering overview</summary><p>Indexed 1,000+ resolved tickets using selective OCR, content-hash-based re-indexing, ticket-aware chunking, PostgreSQL pgvector hybrid search (vector + BM25), metadata filters and cross-encoder reranking. Added Azure OpenAI with Entra ID managed identities, department-level RBAC, Presidio PII masking, RAGAS evaluation gates, Arize Phoenix monitoring, and Redis caching that reached a 35% hit rate while reducing cost per query from ~$0.015 to ~$0.003.</p></details>
-            </div>
+            
           </div>
         </article>
 
